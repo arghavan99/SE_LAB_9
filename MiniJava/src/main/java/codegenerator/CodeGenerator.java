@@ -152,7 +152,7 @@ public class CodeGenerator {
     public void checkID() {
         symbolStack.pop();
         if (ss.peek().varType == VarType.Non) {
-            //TODO : error
+            ErrorHandlerHelper.printError("vartype none not defined ");
         }
     }
 
