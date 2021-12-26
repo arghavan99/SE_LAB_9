@@ -301,27 +301,24 @@ public class CodeGenerator {
 
     }
 
-    public void add() {
+    private void add_or_sub(Operation operation) {
         Address temp = new Address(memory.getTemp(), VarType.Int);
         Address s2 = ss.pop();
         Address s1 = ss.pop();
 
         if (s1.varType != VarType.Int || s2.varType != VarType.Int) {
-            ErrorHandlerHelper.printError("In add two operands must be integer");
+            ErrorHandlerHelper.printError("Two operands must be integer");
         }
-        memory.add3AddressCode(Operation.ADD, s1, s2, temp);
+        memory.add3AddressCode(operation, s1, s2, temp);
         ss.push(temp);
     }
 
+    public void add() {
+        add_or_sub(Operation.ADD);
+    }
+
     public void sub() {
-        Address temp = new Address(memory.getTemp(), VarType.Int);
-        Address s2 = ss.pop();
-        Address s1 = ss.pop();
-        if (s1.varType != VarType.Int || s2.varType != VarType.Int) {
-            ErrorHandlerHelper.printError("In sub two operands must be integer");
-        }
-        memory.add3AddressCode(Operation.SUB, s1, s2, temp);
-        ss.push(temp);
+        add_or_sub(Operation.SUB);
     }
 
     public void mult() {
