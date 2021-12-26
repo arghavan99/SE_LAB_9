@@ -63,7 +63,7 @@ class ThreeAddressCode {
     public Address Operand3;
 
     public ThreeAddressCode() {
-
+       // This constructor is used to save memory. It should be empty.
     }
 
     public ThreeAddressCode(Operation op, Address opr1, Address opr2, Address opr3) {
