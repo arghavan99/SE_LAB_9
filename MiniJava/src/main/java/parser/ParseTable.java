@@ -1,7 +1,7 @@
 package parser;
 
 import scanner.token.Token;
-
+import errorhandler.ErrorHandlerHelper;
 import java.util.*;
 
 /**
@@ -23,7 +23,7 @@ public class ParseTable {
                 try {
                     nonTerminals.put(i, NonTerminal.valueOf(temp));
                 }catch (Exception e){
-                    temp = temp;
+                    ErrorHandlerHelper.printError("Error occured.");
                 }
             }
             else {
