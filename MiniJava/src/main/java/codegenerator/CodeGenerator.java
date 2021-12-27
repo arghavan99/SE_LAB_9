@@ -131,6 +131,8 @@ public class CodeGenerator {
             case 33:
                 defMain();
                 break;
+            default:
+                break;
         }
     }
 
@@ -171,6 +173,8 @@ public class CodeGenerator {
                     case Int:
                         t = VarType.Int;
                         break;
+                    default:
+                        break;
                 }
                 ss.push(new Address(s.address, t));
 
@@ -198,6 +202,8 @@ public class CodeGenerator {
                 break;
             case Int:
                 t = VarType.Int;
+                break;
+            default:
                 break;
         }
         ss.push(new Address(s.address, t));
@@ -244,6 +250,8 @@ public class CodeGenerator {
                 case Bool:
                     t = VarType.Bool;
                     break;
+                default:
+                    break;
             }
             Address temp = new Address(memory.getTemp(),t);
             ss.push(temp);
@@ -270,6 +278,8 @@ public class CodeGenerator {
                     break;
                 case Int:
                     t = VarType.Int;
+                    break;
+                default:
                     break;
             }
             Address param = ss.pop();
@@ -464,6 +474,8 @@ public class CodeGenerator {
                 break;
             case Bool:
                 temp = VarType.Bool;
+            default:
+                break;
         }
         if (s.varType != temp) {
             ErrorHandlerHelper.printError("The type of method and return address was not match");

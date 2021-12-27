@@ -27,7 +27,8 @@ public class Address {
                 return "@"+num;
             case Imidiate:
                 return "#"+num;
+            default:
+                return num+"";
         }
-        return num+"";
     }
 }

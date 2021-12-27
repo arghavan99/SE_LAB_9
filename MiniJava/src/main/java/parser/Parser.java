@@ -66,6 +66,7 @@ public class Parser {
               parsStack.pop();
             }
 
+
             LogHelper.print(/*"state : " +*/ parsStack.peek() + "\t" + rule.LHS);
 //                        Log.print("LHS : "+rule.LHS);
             parsStack.push(parseTable.getGotoTable(parsStack.peek(), rule.LHS));
@@ -79,6 +80,8 @@ public class Parser {
             break;
           case accept:
             finish = true;
+            break;
+          default:
             break;
         }
         LogHelper.print("");
