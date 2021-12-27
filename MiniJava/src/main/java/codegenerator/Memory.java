@@ -22,7 +22,6 @@ public class Memory {
     }
 
     public int getTemp() {
-        lastTempIndex += tempSize;
         return lastTempIndex - tempSize;
     }
     public void updateLastTempIndex() {
