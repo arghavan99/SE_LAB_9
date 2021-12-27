@@ -474,6 +474,7 @@ public class CodeGenerator {
                 break;
             case Bool:
                 temp = VarType.Bool;
+                break;
             default:
                 break;
         }
