@@ -38,6 +38,7 @@ public class SymbolTable {
     }
 
     public void addField(String fieldName, String className) {
+        mem.updateDateAddress();
         klasses.get(className).Fields.put(fieldName, new Symbol(lastType, mem.getDateAddress()));
     }
 
@@ -57,6 +58,7 @@ public class SymbolTable {
             if (klasses.get(className).Methodes.get(methodName).localVariable.containsKey(localVariableName)) {
                 ErrorHandlerHelper.printError("This variable already defined");
             }
+            mem.updateDateAddress();
             klasses.get(className).Methodes.get(methodName).localVariable.put(localVariableName, new Symbol(lastType, mem.getDateAddress()));
 //        }catch (NullPointerException e){
 //            e.printStackTrace();
@@ -159,7 +161,9 @@ public class SymbolTable {
             this.codeAddress = codeAddress;
             this.returnType = returnType;
             this.orderdParameters = new ArrayList<>();
+            mem.updateDateAddress();
             this.returnAddress = mem.getDateAddress();
+            mem.updateDateAddress();
             this.callerAddress = mem.getDateAddress();
             this.parameters = new HashMap<>();
             this.localVariable = new HashMap<>();
@@ -176,6 +180,7 @@ public class SymbolTable {
         }
 
         public void addParameter(String parameterName) {
+            mem.updateDateAddress();
             parameters.put(parameterName, new Symbol(lastType, mem.getDateAddress()));
             orderdParameters.add(parameterName);
         }

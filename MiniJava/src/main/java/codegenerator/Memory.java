@@ -22,17 +22,21 @@ public class Memory {
     }
 
     public int getTemp() {
+        lastTempIndex += tempSize;
         return lastTempIndex - tempSize;
     }
     public void updateLastTempIndex() {
         lastTempIndex += tempSize;
     }
 
+    public void updateDateAddress() {
+        lastDataAddress += dataSize;
+    }
 
     public  int getDateAddress(){
-        lastDataAddress += dataSize;
         return lastDataAddress-dataSize;
     }
+
     public int saveMemory() {
         codeBlock.add(new ThreeAddressCode());
         return codeBlock.size() - 1;
