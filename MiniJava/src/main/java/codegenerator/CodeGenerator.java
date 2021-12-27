@@ -344,7 +344,6 @@ public class CodeGenerator {
             ErrorHandlerHelper.printError("In mult two operands must be integer");
         }
         memory.add3AddressCode(Operation.MULT, s1, s2, temp);
-//        memory.saveMemory();
         ss.push(temp);
     }
 
